@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a202c;
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: #edf2f7;
+}
+
+.infos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #cbd5e0;
+}
+
+#btn-rejouer {
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #3182ce;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#btn-rejouer:hover {
+    background-color: #2b6cb0;
+    transform: translateY(-1px);
+}
+
+#btn-rejouer:active {
+    transform: translateY(0);
+}
+
+#message-fin {
+    margin-top: 14px;
+    min-height: 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #48bb78;
+}
+
+/* Plateau centré */
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#grille-jeu {
+    display: grid;
+    grid-template-columns: repeat(4, 110px);
+    grid-gap: 14px;
+    justify-content: center;
+    padding: 16px;
+    background-color: #2d3748;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Cartes */
+.carte {
+    width: 110px;
+    height: 110px;
+    background-color: #4a5568;
+    border: 2px solid #718096;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+    transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carte:hover:not(.trouvee) {
+    transform: scale(1.03);
+    border-color: #63b3ed;
+    box-shadow: 0 0 10px rgba(99, 179, 237, 0.4);
+}
+
+.carte:focus-visible {
+    outline: 2px solid #63b3ed;
+}
+
+.carte img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+}
+
+.carte.trouvee {
+    opacity: 0.45;
+    cursor: default;
+    border-color: #48bb78;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 520px) {
+    #grille-jeu {
+        grid-template-columns: repeat(4, 75px);
+        grid-gap: 8px;
+        padding: 10px;
+    }
+
+    .carte {
+        width: 75px;
+        height: 75px;
+    }
+}
